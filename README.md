@@ -7,25 +7,33 @@
 ###前提：需要先在浏览器上登录过你的莱茨狗账户，之后插件才可以利用用户的cookie去购买，插件本身不会保存任何用户信息，这也是开源的优势...
 
 ###1. 直接下载下来，在Chrome浏览器中输入[chrome://extensions/](), 然后勾选Developer Mode，再点击Load unpacked extension..., 选择下载文件中的build目录就可以了。安装之后看起来就是下面的样子：
+
 ![plugin](https://github.com/slientServer/baidu-dog-helper/blob/master/doc_image/plugin.png)
+
 ###2. 点击浏览器右上角的狗图标，就会打开配置页面，看起来是下面的样子：
+
 ![configuration](https://github.com/slientServer/baidu-dog-helper/blob/master/doc_image/home.png)
+
 #### 2.1 配置价格不多说了
 #### 2.2 刷新数量：按照时间降序，获取市场最新发布指定数量的狗，建议不要设置太大，一来没必要，结合刷新频率，并不需要太高；二来，百度设置了单次查询数量的限制，大规模请求依赖并发，请求频率太高后续的请求会被百度服务器禁掉，获取不到数据。
 #### 2.3 刷新频率：单位是秒，跟上面一样，不要太快。
 #### 2.4 是否自动提交：不勾选的话需要手动提交，勾选的话会自动提交，但是需要输入验证码，尝试着去写自动识别验证码，发现识别效果不理想，因为这个验证码都是一个颜色，降噪之后也不理想，所以暂时就手动输入吧，输入后系统会使用这个验证码去抢至多五组符合条件的狗，验证码有效期很短，抢再多也没有意义。之后可以再尝试别的办法来识别验证码。
 
 ###3. 配置好配置页面之后，一旦点击“匹配狗狗列表之后”便开始按照配置数据进行刷新，只要不关闭页面，刷新会一直持续下去。
+
 ![list](https://github.com/slientServer/baidu-dog-helper/blob/master/doc_image/list.png)
 
 ## 对于开发者
 ###1. 想要修改自己用的同学，也只需要clone到自己本地按下面命令安装依赖就可以了。
+
 ###1.1 npm install 安装依赖
+
 ###1.2 npm start 启动server
+
 ###1.3 npm run build 部署到build目录，之后就和上面用法一样了
 
 ***
-                              仅供娱乐学习使用，欢迎交流
+仅供娱乐学习使用，欢迎交流
 ***
 
 
