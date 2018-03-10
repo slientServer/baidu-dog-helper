@@ -4,13 +4,13 @@
 > 一个简单的百度[莱茨狗](https://pet-chain.baidu.com/)插件，百度发布了它的区块链产品莱茨狗，理念很好，可是APP特别是交易市场的体验实在是...，之前用了别人的插件(顺便感谢下，写个插件的想法很不错)去抢，发现总也抢不成功，于是就想着自己去写一个玩一玩，顺便学习下...插件本身非常简单，有时间的话继续更新：）
 
 ## 用法
-###前提：需要先在浏览器上登录过你的莱茨狗账户，之后插件才可以利用用户的cookie去购买，插件本身不会保存任何用户信息，这也是开源的优势...
+### 前提：需要先在浏览器上登录过你的莱茨狗账户，之后插件才可以利用用户的cookie去购买，插件本身不会保存任何用户信息，这也是开源的优势...
 
-###1. 直接下载下来，在Chrome浏览器中输入[chrome://extensions/](), 然后勾选Developer Mode，再点击Load unpacked extension..., 选择下载文件中的build目录就可以了。安装之后看起来就是下面的样子：
+### 1. 直接下载下来，在Chrome浏览器中输入[chrome://extensions/](), 然后勾选Developer Mode，再点击Load unpacked extension..., 选择下载文件中的build目录就可以了。安装之后看起来就是下面的样子：
 
 ![plugin](https://github.com/slientServer/baidu-dog-helper/blob/master/doc_image/plugin.png)
 
-###2. 点击浏览器右上角的狗图标，就会打开配置页面，看起来是下面的样子：
+### 2. 点击浏览器右上角的狗图标，就会打开配置页面，看起来是下面的样子：
 
 ![configuration](https://github.com/slientServer/baidu-dog-helper/blob/master/doc_image/home.png)
 
@@ -24,13 +24,13 @@
 ![list](https://github.com/slientServer/baidu-dog-helper/blob/master/doc_image/list.png)
 
 ## 对于开发者
-###1. 想要修改自己用的同学，也只需要clone到自己本地按下面命令安装依赖就可以了。
+### 1. 想要修改自己用的同学，也只需要clone到自己本地按下面命令安装依赖就可以了。
 
-###1.1 npm install 安装依赖
+### 1.1 npm install 安装依赖
 
-###1.2 npm start 启动server
+### 1.2 npm start 启动server
 
-###1.3 npm run build 部署到build目录，之后就和上面用法一样了
+### 1.3 npm run build 部署到build目录，之后就和上面用法一样了
 
 ***
 仅供娱乐学习使用，欢迎交流
