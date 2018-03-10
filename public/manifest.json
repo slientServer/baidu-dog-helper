@@ -1,0 +1,19 @@
+{
+  "name": "Baidu-Dog",
+  "description": "Baidu Dog Helper.",
+  "version": "1.0",
+  "permissions": [
+    "cookies",
+    "*://*.baidu.com/"
+  ],
+  "browser_action": {
+    "default_title": "Baidu Dog",
+    "default_icon": "logo.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "manifest_version": 2
+}
