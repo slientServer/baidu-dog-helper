@@ -53,12 +53,15 @@ function requestBuyDog(data, callback){
     'data': {
       "amount": data.dogInfo.amount,
       "appId": 1,
+      "nounce": null,
       "seed": data.seed,
       "captcha": data.verifyCode,
       "petId": data.dogInfo.petId,
       "requestId": new Date().getTime(),
-      "validCode": "",
-      "tpl":""
+      "validCode": data.dogInfo.validCode,
+      "tpl": "",
+      "timeStamp": "",
+      "token": null
     }
   })
   .then((response) => {

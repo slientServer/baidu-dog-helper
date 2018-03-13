@@ -36,7 +36,12 @@ class Captcha extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({'verifyCode': e.target.value});
+    this.setState({'verifyCode': e.target.value}, () => {
+      if(this.state.verifyCode.length === 4){
+        this.props.confirmRequestBuyDogs(this.state); 
+        this.setState({visible: false});
+      }
+    });
   }
 
   render() {

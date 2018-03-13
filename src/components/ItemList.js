@@ -14,6 +14,15 @@ function ItemList(props) {
       dataIndex: 'amount',
       key: 'amount',
     }, {
+      title: 'id',
+      dataIndex: 'id',
+      key: 'id',
+      sorter: (a, b) => a.id - b.id
+    }, {
+      title: 'petId',
+      dataIndex: 'petId',
+      key: 'petId'
+    }, {
       title: '代级',
       dataIndex: 'generation',
       key: 'generation',

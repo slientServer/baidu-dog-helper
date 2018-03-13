@@ -5,12 +5,13 @@ import Home from './Home';
 import { requestDogsMarket, requestBuyDog, requestCaptchaGen } from '../utils/Requests';
 import Captcha from '../components/Captcha';
 import {withRouter} from 'react-router'
-import {Spin, message} from 'antd';
+import {Spin, notification, message} from 'antd';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      checkedCount: 0,
       menuList: [
         {
           key: 'configuration',
@@ -39,12 +40,14 @@ class App extends Component {
     requestDogsMarket(num, (data) => {
       this.setState({
         loading: false,
+        checkedCount: this.state.checkedCount + data.length,
         matchedList: this.filterInvalidData(data)
       })
     });
   }
 
   filterInvalidData = (data) => {
+    let validData= [];
     let conditionMap= {
       0: window.localStorage.getItem('type0'),
       1: window.localStorage.getItem('type1'),
@@ -53,7 +56,7 @@ class App extends Component {
       4: window.localStorage.getItem('type4'),
       5: window.localStorage.getItem('type5')
     };
-    let validData= data.filter(item => (parseInt(item.amount, 10) < (parseInt(conditionMap[item.rareDegree], 10) || 0)));
+    validData= data.filter(item => ((parseInt(item.amount, 10) < (parseInt(conditionMap[item.rareDegree], 10) || 0)) || (item.id && item.id.length < 4)));
     if (validData.length > 0 && window.localStorage.getItem('autoBuy') === 'true') {
       requestCaptchaGen({}, (data) => {
         this.setState({
@@ -67,7 +70,10 @@ class App extends Component {
 
   confirmRequestBuyDogs = (data) => {
     requestBuyDog(data, (response) => {
-      message.success(response.errorMsg);
+      notification.open({
+        message: response.errorMsg,
+        duration: 0
+      });
     });
     if (window.localStorage.getItem('autoBuy') === 'true') {
       this.state.matchedList.forEach(function(currentValue, key, arr){
@@ -77,7 +83,10 @@ class App extends Component {
             seed: data.seed,
             verifyCode: data.verifyCode
           }, (response) => {
-            message.success(response.errorMsg);
+            notification.open({
+              message: response.errorMsg,
+              duration: 0
+            });
           });
         }        
       })
@@ -86,6 +95,7 @@ class App extends Component {
 
   render() {
     const props= {
+      checkedCount: this.state.checkedCount,
       menuList: this.state.menuList,
       matchedList: this.state.matchedList,
       updateView: (evt)=>{
