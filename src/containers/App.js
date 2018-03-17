@@ -5,7 +5,7 @@ import Home from './Home';
 import { requestDogsMarket, requestBuyDog, requestCaptchaGen } from '../utils/Requests';
 import Captcha from '../components/Captcha';
 import {withRouter} from 'react-router'
-import {Spin, notification, message} from 'antd';
+import {Spin, notification} from 'antd';
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +20,10 @@ class App extends Component {
         {
           key: 'dogslist',
           title: '匹配狗狗列表'
+        },
+        {
+          key: 'autorequest',
+          title: '自动请求'
         }],
       matchedList: [],
       loading: false
@@ -107,6 +111,8 @@ class App extends Component {
             that.updateDogsList();
           }, (window.localStorage.getItem('refreshFrequent')*1000))
           this.props.router.push('list');
+        } else if(evt.key === 'autorequest'){
+          this.props.router.push('/autorequest');
         } else {
           this.props.router.push('/');
         }

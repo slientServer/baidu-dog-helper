@@ -6,6 +6,7 @@
   "dependencies": {
     "ajv": "^6.2.1",
     "antd": "^3.2.3",
+    "async": "^2.6.0",
     "axios": "^0.18.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

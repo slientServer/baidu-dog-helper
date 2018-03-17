@@ -4,7 +4,11 @@
   "version": "1.0",
   "permissions": [
     "cookies",
-    "*://*.baidu.com/"
+    "storage",
+    "tabs",
+    "*://*.baidu.com/",
+    "*://*.ivery.one/",
+    "*://*.jiamitu.mi.com/"
   ],
   "browser_action": {
     "default_title": "Baidu Dog",
