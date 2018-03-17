@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Row, Col, InputNumber, message, notification, Input } from 'antd';
+import { Button, Row, Col, InputNumber, message, notification, Input, Divider } from 'antd';
 import axios from 'axios';
 import async from 'async';
 
@@ -81,7 +81,7 @@ class AutoRequest extends Component {
       let fail= [];
       let unAuth= [];
       for(let idx=0; idx < res.length; idx++){
-        if(res[idx].errmsg != ''){
+        if(res[idx].errmsg !== ''){
           fail.push(res[idx].data);
         }else{
           if(!res[idx].data.authorized){
@@ -131,7 +131,7 @@ class AutoRequest extends Component {
     }, (err, res) => {
       let success = [];
       for(let idx=0; idx< res.length; idx++){
-        if(res[idx].errmsg == ''){
+        if(res[idx].errmsg === ''){
           success.push(res[idx].data);
         }
       }
@@ -198,7 +198,7 @@ class AutoRequest extends Component {
   handleStartLottery = () => {
     let count = 0 ;
     async.whilst(function () {
-      return count < parseInt(window.localStorage.getItem('lotteryCount'));
+      return count < parseInt(window.localStorage.getItem('lotteryCount'), 10);
     }, function (callback) {
       count++;
       axios.get('https://jiamitu.mi.com/pet/main/lottery')
@@ -219,20 +219,20 @@ class AutoRequest extends Component {
   render() {
     return (
       <div>
+        <Divider>IVeryOne</Divider>
         <Row style={{marginBottom: '20px'}}>
           <Col span={8}>
             <Button type="primary" onClick={this.handleStart}>开始读书</Button>
           </Col>
           <Col span={8}>
             卖方ID:
-            <Input value={this.state.sellerid} onChange={this.localSelleridUpdate}/>
+            <Input style={{width:"60%"}} value={this.state.sellerid} onChange={this.localSelleridUpdate}/>
           </Col>
         </Row>
+        <Divider>加密兔</Divider>
         <Row style={{marginBottom: '20px'}}>
           <Col span={8}>
             <Button type="primary" onClick={this.handleStartRush}>开始抢兔</Button>
-          </Col>
-          <Col span={8}>
             <Button onClick={this.handleStartRushStop}>停止抢兔</Button>
           </Col>
           <Col span={8}>

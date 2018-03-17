@@ -27,7 +27,7 @@ function MenuList(props) {
           return (
             <Item key={item.key}>
               <Icon type={item.icon} />
-              <span>{item.title}[{props.checkedCount}]</span>
+              <span>{item.title}{item.key !== 'dogslist'?'': '[' + props.checkedCount + ']'}</span>
             </Item>
           );
         }

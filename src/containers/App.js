@@ -23,7 +23,7 @@ class App extends Component {
         },
         {
           key: 'autorequest',
-          title: '自动请求'
+          title: '小工具'
         }],
       matchedList: [],
       loading: false
