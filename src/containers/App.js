@@ -44,7 +44,7 @@ class App extends Component {
     requestDogsMarket(num, (data) => {
       this.setState({
         loading: false,
-        checkedCount: this.state.checkedCount + data.length,
+        checkedCount: this.state.checkedCount + (data && data.length),
         matchedList: this.filterInvalidData(data)
       })
     });
@@ -109,7 +109,7 @@ class App extends Component {
           this.timer && clearInterval(this.timer);
           this.timer = setInterval(() => {
             that.updateDogsList();
-          }, (window.localStorage.getItem('refreshFrequent')*1000))
+          }, ((window.localStorage.getItem('refreshFrequent') || 20)*1000))
           this.props.router.push('list');
         } else if(evt.key === 'autorequest'){
           this.props.router.push('/autorequest');

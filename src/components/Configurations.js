@@ -12,9 +12,9 @@ class Configurations extends Component {
       type3: window.localStorage.getItem('type3'),
       type4: window.localStorage.getItem('type4'),
       type5: window.localStorage.getItem('type5'),
-      refreshCount: window.localStorage.getItem('refreshCount') || 100,
+      refreshCount: window.localStorage.getItem('refreshCount'),
       autoBuy: window.localStorage.getItem('autoBuy') === 'true'? true : false,
-      refreshFrequent: window.localStorage.getItem('refreshFrequent') || 20
+      refreshFrequent: window.localStorage.getItem('refreshFrequent')
     };
   }
 
